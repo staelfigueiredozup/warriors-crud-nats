@@ -1,0 +1,5 @@
+micronaut:
+  application:
+    name: nats
+nats.addresses:
+- nats://localhost:4222
