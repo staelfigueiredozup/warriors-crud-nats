@@ -1,5 +1,8 @@
 micronaut:
   application:
     name: nats
+  server:
+    port: 8081
+
 nats.addresses:
 - nats://localhost:4222
