@@ -1,6 +1,6 @@
 package br.com.zup.warriors.nats.nats
 
-import br.com.zup.warriors.nats.dto.ConsoleResponse
+import br.com.zup.warriors.nats.dto.EventsInformationDto
 import io.micronaut.nats.annotation.NatsClient
 import io.micronaut.nats.annotation.Subject
 
@@ -8,6 +8,6 @@ import io.micronaut.nats.annotation.Subject
 interface ConsoleClient {
 
     @Subject("cadastro-console")
-    fun send(consoleResponse: ConsoleResponse)
+    fun send(eventsInformation: EventsInformationDto)
 
 }
