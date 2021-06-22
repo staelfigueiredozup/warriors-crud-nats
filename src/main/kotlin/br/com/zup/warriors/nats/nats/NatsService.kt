@@ -1,8 +1,8 @@
 package br.com.zup.warriors.nats.nats
 
-import br.com.zup.warriors.nats.dto.InformacoesConsoleRequest
-import br.com.zup.warriors.nats.dto.EventsInformationDto
-import br.com.zup.warriors.nats.event.ConsoleEvents
+import br.com.zup.warriors.nats.domain.dto.InformacoesConsoleRequest
+import br.com.zup.warriors.nats.domain.dto.EventsInformationDto
+import br.com.zup.warriors.nats.domain.enums.ConsoleEvents
 import javax.inject.Singleton
 
 @Singleton

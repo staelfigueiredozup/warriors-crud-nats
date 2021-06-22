@@ -1,11 +1,10 @@
 package br.com.zup.warriors.nats.controller
 
-import br.com.zup.warriors.nats.dto.ConsoleRequest
-import br.com.zup.warriors.nats.dto.DadosRequest
-import br.com.zup.warriors.nats.event.ConsoleEvents
+import br.com.zup.warriors.nats.domain.dto.ConsoleRequest
+import br.com.zup.warriors.nats.domain.dto.DadosRequest
+import br.com.zup.warriors.nats.domain.enums.ConsoleEvents
 import br.com.zup.warriors.nats.nats.NatsService
 import br.com.zup.warriors.nats.service.InformacoesConsoleService
-import br.com.zup.warriors.nats.service.InformacoesConsoleServiceImpl
 import io.micronaut.http.annotation.*
 import io.micronaut.validation.Validated
 import org.slf4j.LoggerFactory

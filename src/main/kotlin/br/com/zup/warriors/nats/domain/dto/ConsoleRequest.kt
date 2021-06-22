@@ -1,4 +1,4 @@
-package br.com.zup.warriors.nats.dto
+package br.com.zup.warriors.nats.domain.dto
 
 import io.micronaut.core.annotation.Introspected
 import java.time.LocalDate

@@ -1,9 +1,10 @@
-package br.com.zup.warriors.nats.dto
+package br.com.zup.warriors.nats.domain.dto
 
 import java.time.LocalDate
 
-data class DadosRequest(
+data class InformacoesConsoleRequest(
     val nome: String = "",
     val marca: String = "",
+    var id: String = "",
     val dataLancamento: LocalDate? = null
 )

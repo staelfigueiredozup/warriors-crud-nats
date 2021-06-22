@@ -1,8 +1,8 @@
 package br.com.zup.warriors.nats.service
 
-import br.com.zup.warriors.nats.dto.ConsoleRequest
-import br.com.zup.warriors.nats.dto.DadosRequest
-import br.com.zup.warriors.nats.dto.InformacoesConsoleRequest
+import br.com.zup.warriors.nats.domain.dto.ConsoleRequest
+import br.com.zup.warriors.nats.domain.dto.DadosRequest
+import br.com.zup.warriors.nats.domain.dto.InformacoesConsoleRequest
 
 interface InformacoesConsoleService {
 

@@ -1,9 +1,9 @@
-package br.com.zup.warriors.nats.dto
+package br.com.zup.warriors.nats.domain.dto
 
-import br.com.zup.warriors.nats.event.ConsoleEvents
+import br.com.zup.warriors.nats.domain.enums.ConsoleEvents
 import java.time.LocalDate
 
-class EventsInformationDto(
+data class EventsInformationDto(
     val event: ConsoleEvents,
     val nome: String = "",
     val marca: String = "",
