@@ -6,3 +6,7 @@ micronaut:
 
 nats.addresses:
 - nats://localhost:4222
+
+endpoint:
+  health:
+    enable: true
