@@ -1,10 +1,11 @@
 package br.com.zup.warriors.nats.controller
 
-import br.com.zup.warriors.nats.domain.dto.ConsoleRequest
-import br.com.zup.warriors.nats.domain.dto.DadosRequest
-import br.com.zup.warriors.nats.domain.dto.InformacoesConsoleRequest
-import br.com.zup.warriors.nats.nats.NatsService
-import br.com.zup.warriors.nats.service.InformacoesConsoleService
+import br.com.zup.warriors.nats.entrypoint.dto.ConsoleRequest
+import br.com.zup.warriors.nats.entrypoint.dto.DadosRequest
+import br.com.zup.warriors.nats.core.model.model.InformacoesConsole
+import br.com.zup.warriors.nats.entrypoint.controller.ConsolesController
+import br.com.zup.warriors.nats.infrastructure.service.NatsService
+import br.com.zup.warriors.nats.core.ports.InformacoesConsoleServicePort
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
@@ -16,7 +17,7 @@ import java.util.*
 internal class ConsolesControllerTest: AnnotationSpec() {
 
     val natsService = mockk<NatsService>()
-    val infoConsolesService = mockk<InformacoesConsoleService>()
+    val infoConsolesService = mockk<InformacoesConsoleServicePort>()
     val controller = ConsolesController(natsService, infoConsolesService)
 
     lateinit var id: String
@@ -41,7 +42,7 @@ internal class ConsolesControllerTest: AnnotationSpec() {
 
         //validação
         result shouldBe Unit
-        klass.javaClass shouldBe InformacoesConsoleRequest::class.java
+        klass.javaClass shouldBe InformacoesConsole::class.java
     }
 
     @Test
@@ -55,7 +56,7 @@ internal class ConsolesControllerTest: AnnotationSpec() {
 
         //validação
         result shouldBe Unit
-        klass.javaClass shouldBe InformacoesConsoleRequest::class.java
+        klass.javaClass shouldBe InformacoesConsole::class.java
     }
 
     @Test
@@ -69,7 +70,7 @@ internal class ConsolesControllerTest: AnnotationSpec() {
 
         //validação
         result shouldBe Unit
-        klass.javaClass shouldBe InformacoesConsoleRequest::class.java
+        klass.javaClass shouldBe InformacoesConsole::class.java
     }
 
 }

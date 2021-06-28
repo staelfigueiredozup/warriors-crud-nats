@@ -1,4 +1,4 @@
-package br.com.zup.warriors.nats.domain.enums
+package br.com.zup.warriors.nats.core.model.enums
 
 enum class ConsoleEvents(s: String) {
 

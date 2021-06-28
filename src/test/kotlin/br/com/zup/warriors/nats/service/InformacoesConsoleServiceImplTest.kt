@@ -1,22 +1,22 @@
 package br.com.zup.warriors.nats.service
 
-import br.com.zup.warriors.nats.domain.dto.ConsoleRequest
-import br.com.zup.warriors.nats.domain.dto.DadosRequest
-import br.com.zup.warriors.nats.domain.dto.InformacoesConsoleRequest
+import br.com.zup.warriors.nats.entrypoint.dto.ConsoleRequest
+import br.com.zup.warriors.nats.entrypoint.dto.DadosRequest
+import br.com.zup.warriors.nats.core.model.model.InformacoesConsole
+import br.com.zup.warriors.nats.core.service.InformacoesConsoleService
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
-import io.mockk.every
 import java.util.*
 
 @MicronautTest
 class InformacoesConsoleServiceImplTest : AnnotationSpec() {
 
-    val informacoesConsoleService = InformacoesConsoleServiceImpl()
+    val informacoesConsoleService = InformacoesConsoleService()
 
     lateinit var consoleRequest: ConsoleRequest
     lateinit var dadosRequest: DadosRequest
-    lateinit var infoConsoleRequest: InformacoesConsoleRequest
+    lateinit var infoConsoleRequest: InformacoesConsole
 
     companion object {
         val id = UUID.randomUUID().toString()
@@ -26,7 +26,7 @@ class InformacoesConsoleServiceImplTest : AnnotationSpec() {
     fun setUp(){
         consoleRequest = ConsoleRequest(nome = "consoleA", marca = "marcaA", dataLancamento = null)
         dadosRequest = DadosRequest(nome = "consoleA", marca = "marcaA", dataLancamento = null)
-        infoConsoleRequest = InformacoesConsoleRequest(nome = "consoleA", marca = "marcaA", dataLancamento = null)
+        infoConsoleRequest = InformacoesConsole(nome = "consoleA", marca = "marcaA", dataLancamento = null)
     }
 
     @Test

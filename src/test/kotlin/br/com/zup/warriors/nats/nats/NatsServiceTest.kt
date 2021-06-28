@@ -1,10 +1,11 @@
 package br.com.zup.warriors.nats.nats
 
-import br.com.zup.warriors.nats.domain.dto.EventsInformationDto
-import br.com.zup.warriors.nats.domain.dto.InformacoesConsoleRequest
-import br.com.zup.warriors.nats.domain.enums.ConsoleEvents
+import br.com.zup.warriors.nats.core.model.model.InformacoesEvents
+import br.com.zup.warriors.nats.core.model.model.InformacoesConsole
+import br.com.zup.warriors.nats.core.model.enums.ConsoleEvents
+import br.com.zup.warriors.nats.infrastructure.nats.ConsoleClient
+import br.com.zup.warriors.nats.infrastructure.service.NatsService
 import io.kotest.core.spec.style.AnnotationSpec
-import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.every
@@ -18,8 +19,8 @@ class NatsServiceTest : AnnotationSpec() {
     val consoleClient = mockk<ConsoleClient>()
     val natsService = NatsService(consoleClient)
 
-    lateinit var consoleRequest: InformacoesConsoleRequest
-    lateinit var eventsInformationDto: EventsInformationDto
+    lateinit var consoleRequest: InformacoesConsole
+    lateinit var eventsInformationDto: InformacoesEvents
 
     companion object{
         val id = UUID.randomUUID().toString()
@@ -27,13 +28,13 @@ class NatsServiceTest : AnnotationSpec() {
 
     @BeforeEach
     fun setUp(){
-        consoleRequest = InformacoesConsoleRequest(
+        consoleRequest = InformacoesConsole(
             nome = "nomeA",
             marca = "marcaA",
             id = id,
             dataLancamento = LocalDate.now()
         )
-        eventsInformationDto = EventsInformationDto(
+        eventsInformationDto = InformacoesEvents(
             event = ConsoleEvents.CADASTRA_CONSOLE,
             nome = "nomeA",
             marca = "marcaA",

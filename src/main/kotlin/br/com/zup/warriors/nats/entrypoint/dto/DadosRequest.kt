@@ -1,4 +1,4 @@
-package br.com.zup.warriors.nats.domain.dto
+package br.com.zup.warriors.nats.entrypoint.dto
 
 import java.time.LocalDate
 
