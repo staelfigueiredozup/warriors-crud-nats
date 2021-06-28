@@ -1,10 +1,9 @@
-package br.com.zup.warriors.nats.nats
+package br.com.zup.warriors.nats.infrastructure.service
 
-import br.com.zup.warriors.nats.core.model.model.InformacoesEvents
-import br.com.zup.warriors.nats.core.model.model.InformacoesConsole
 import br.com.zup.warriors.nats.core.model.enums.ConsoleEvents
-import br.com.zup.warriors.nats.infrastructure.nats.ConsoleClient
-import br.com.zup.warriors.nats.infrastructure.service.NatsService
+import br.com.zup.warriors.nats.core.model.model.InformacoesConsole
+import br.com.zup.warriors.nats.core.model.model.InformacoesEvents
+import br.com.zup.warriors.nats.infrastructure.client.ConsoleClient
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest

@@ -1,4 +1,4 @@
-package br.com.zup.warriors.nats.infrastructure.dto
+package br.com.zup.warriors.nats.infrastructure.model
 
 import br.com.zup.warriors.nats.core.model.enums.ConsoleEvents
 import java.time.LocalDate

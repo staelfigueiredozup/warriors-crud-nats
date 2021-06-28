@@ -3,7 +3,7 @@ package br.com.zup.warriors.nats.core.mapper
 import br.com.zup.warriors.nats.core.model.enums.ConsoleEvents
 import br.com.zup.warriors.nats.core.model.model.InformacoesConsole
 import br.com.zup.warriors.nats.core.model.model.InformacoesEvents
-import br.com.zup.warriors.nats.infrastructure.dto.InformacoesEventsDto
+import br.com.zup.warriors.nats.infrastructure.model.InformacoesEventsDto
 
 class EventsConverter {
 
