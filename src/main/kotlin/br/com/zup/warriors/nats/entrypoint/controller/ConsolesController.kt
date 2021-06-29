@@ -1,10 +1,9 @@
 package br.com.zup.warriors.nats.entrypoint.controller
 
-import br.com.zup.warriors.nats.core.model.enums.ConsoleEvents
-import br.com.zup.warriors.nats.core.ports.InformacoesConsoleServicePort
-import br.com.zup.warriors.nats.core.ports.NatsServicePort
-import br.com.zup.warriors.nats.entrypoint.dto.ConsoleRequest
-import br.com.zup.warriors.nats.entrypoint.dto.DadosRequest
+import br.com.zup.warriors.nats.core.mapper.ConsoleConverter
+import br.com.zup.warriors.nats.core.ports.ConsoleServicePort
+import br.com.zup.warriors.nats.entrypoint.dto.ConsoleDto
+import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.*
 import io.micronaut.validation.Validated
 import org.slf4j.LoggerFactory
@@ -13,31 +12,32 @@ import javax.validation.Valid
 @Validated
 @Controller("/v1/consoles")
 class ConsolesController(
-    private val natsService: NatsServicePort,
-    private val infoConsoleService: InformacoesConsoleServicePort
+    private val consoleService: ConsoleServicePort,
     ) {
 
     val logger = LoggerFactory.getLogger(this::class.java)
 
     @Post
-    fun cadastraConsole(@Body @Valid consoleRequest: ConsoleRequest){
+    fun cadastraConsole(@Body @Valid console: ConsoleDto): HttpResponse<Any> {
         logger.info("Recebidas informações de console para cadastro")
-        val informacoesConsoleRequest = infoConsoleService.toInformacoesConsoleRequest(consoleRequest)
-        natsService.send(ConsoleEvents.CADASTRA_CONSOLE, informacoesConsoleRequest)
+        consoleService.cadastraConsole(ConsoleConverter.consoleDtoToConsole(console))
+        return HttpResponse.accepted()
     }
 
     @Put("/{id}")
-    fun atualizaConsole(@PathVariable id: String, dadosRequest: DadosRequest){
+    fun atualizaConsole(@PathVariable id: String, console: ConsoleDto): HttpResponse<Any>{
         logger.info("Recebidas informações de console para atualização")
-        val informacoesConsoleRequest = infoConsoleService.toInformacoesConsoleRequest(id, dadosRequest)
-        natsService.send(ConsoleEvents.ALTERA_CONSOLE, informacoesConsoleRequest)
+        val consoleDto = ConsoleDto(console.nome, console.marca, id, console.dataLancamento)
+        consoleService.atualizaConsole(ConsoleConverter.consoleDtoToConsole(consoleDto))
+        return HttpResponse.accepted()
     }
 
     @Delete("/{id}")
-    fun deletaConsole(@PathVariable id: String){
+    fun deletaConsole(@PathVariable id: String): HttpResponse<Any> {
         logger.info("Recebidas informações de console para remoção")
-        val informacoesConsoleRequest = infoConsoleService.toInformacoesConsoleRequest(id)
-        natsService.send(ConsoleEvents.DELETA_CONSOLE, informacoesConsoleRequest)
+        val consoleDto = ConsoleDto("","",id,null)
+        consoleService.deletaConsole(ConsoleConverter.consoleDtoToConsole(consoleDto))
+        return HttpResponse.accepted()
     }
 
 }

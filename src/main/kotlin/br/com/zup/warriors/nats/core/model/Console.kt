@@ -1,8 +1,10 @@
-package br.com.zup.warriors.nats.core.model.model
+package br.com.zup.warriors.nats.core.model
 
+import io.micronaut.core.annotation.Introspected
 import java.time.LocalDate
 
-data class InformacoesConsole(
+@Introspected
+data class Console(
     val nome: String = "",
     val marca: String = "",
     var id: String = "",

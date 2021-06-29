@@ -1,35 +1,21 @@
 package br.com.zup.warriors.nats.core.mapper
 
-import br.com.zup.warriors.nats.core.model.model.InformacoesConsole
-import br.com.zup.warriors.nats.entrypoint.dto.ConsoleRequest
-import br.com.zup.warriors.nats.entrypoint.dto.DadosRequest
+import br.com.zup.warriors.nats.core.model.Console
+import br.com.zup.warriors.nats.entrypoint.dto.ConsoleDto
+import br.com.zup.warriors.nats.infrastructure.model.ConsoleBroker
 
 class ConsoleConverter {
 
     companion object {
 
-        fun consoleRequestToInformacoesConsole(consoleRequest: ConsoleRequest): InformacoesConsole {
-            return InformacoesConsole(
-                nome = consoleRequest.nome,
-                marca = consoleRequest.marca,
-                dataLancamento = consoleRequest.dataLancamento
-            )
-        }
+        fun consoleBrokerToConsole(consoleBroker: ConsoleBroker) =
+            Console(consoleBroker.nome, consoleBroker.marca, consoleBroker.id, consoleBroker.dataLancamento)
 
-        fun dadosRequestToInformacoesConsole(id: String, dadosRequest: DadosRequest): InformacoesConsole {
-            return InformacoesConsole(
-                nome = dadosRequest.nome,
-                marca = dadosRequest.marca,
-                dataLancamento = dadosRequest.dataLancamento,
-                id = id
-            )
-        }
+        fun consoleDtoToConsole(consoleDto: ConsoleDto) =
+            Console(consoleDto.nome, consoleDto.marca, consoleDto.id, consoleDto.dataLancamento)
 
-        fun idToInformacoesConsole(id: String): InformacoesConsole {
-            return InformacoesConsole(
-                id = id
-            )
-        }
+        fun consoleToConsoleBroker(console: Console) =
+            ConsoleBroker(console.nome, console.marca, console.id, console.dataLancamento)
 
     }
 
