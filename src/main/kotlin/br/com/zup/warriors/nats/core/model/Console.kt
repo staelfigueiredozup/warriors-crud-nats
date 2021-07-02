@@ -5,8 +5,8 @@ import java.time.LocalDate
 
 @Introspected
 data class Console(
-    val nome: String = "",
-    val marca: String = "",
-    var id: String = "",
+    val nome: String? = "",
+    val marca: String? = "",
+    var id: String? = "",
     val dataLancamento: LocalDate? = null
 )

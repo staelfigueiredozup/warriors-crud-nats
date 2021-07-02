@@ -5,8 +5,8 @@ import java.time.LocalDate
 
 @Introspected
 data class ConsoleBroker(
-    val nome: String = "",
-    val marca: String = "",
-    val id: String = "",
+    val nome: String? = "",
+    val marca: String? = "",
+    val id: String? = "",
     val dataLancamento: LocalDate? = null,
 )
