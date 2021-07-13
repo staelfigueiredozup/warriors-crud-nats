@@ -3,9 +3,16 @@ micronaut:
     name: nats
   server:
     port: 8081
+  cors:
+    enable: true
 
-nats.addresses:
-- nats://localhost:4222
+nats:
+  addresses: ${nats_host:localhost}
+  username: ${nats_username:guest}
+  password: ${nats_password:guest}
+
+#nats.addresses:
+#- nats://localhost:4222
 
 endpoint:
   health:
